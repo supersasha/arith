@@ -2,13 +2,21 @@
 import sys
 import random
 from termcolor import colored
+import time
 
-LVL = 20
-N = 10
+LVL = 10 #20
+N = 30 #10
 P_sum = 0.5
 MAX_ERRORS = 1
-MIN_ELEM = 1
-MIN_SUM = 11
+MIN_ELEM = 2
+MIN_SUM = 4 #11
+
+#LVL = 20
+#N = 30
+#P_sum = 0.5
+#MAX_ERRORS = 1
+#MIN_ELEM = 2
+#MIN_SUM = 11
 
 def gen_sub_primer(min_sum, max_sum):
     a = random.randint(min_sum, max_sum)
@@ -32,6 +40,7 @@ def gen_primer(min_sum, max_sum):
         return gen_sub_primer(min_sum, max_sum)
 
 def main():
+    t0 = time.time()
     print "Уровень:", LVL
     random.seed()
     were = []
@@ -70,6 +79,7 @@ def main():
         print colored('Сдал!', 'green')
     else:
         print colored('Не сдал.', 'red')
+    print "Время:", time.time() - t0, "секунд"
 
 if __name__ == '__main__':
     main()
